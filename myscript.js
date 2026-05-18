@@ -4,17 +4,48 @@ function getComputerChoice(choices){
 }
 function getHumanChoice(choices){
     check = prompt(`Input the order of your choice between;` + choices);
-    return choices[check-1];
+    //check if the input is valid
+    if(choices.includes(check)){
+        return choices[check-1];
+    }
+    else{
+        console.log("Invalid input. Please try again.");
+        return getHumanChoice(choices);
+    }
+}
+function playRound(choices, humanChoice, computerChoice){
+    humanChoice = getHumanChoice(choices);
+    computerChoice = getComputerChoice(choices);
+    if(humanChoice == computerChoice){
+        console.log(`Its a draw`)
+        console.log(`You both chose ${humanChoice}`);
+        console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
+        return;
+    }
+
+    if((humanChoice == "rock" && computerChoice == "scissors") || 
+        (humanChoice == "paper" && computerChoice == "rock") || 
+        (humanChoice == "scissors" && computerChoice == "paper")){
+        humanScore++;
+        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+    }
+    // Handle the cases where the computer wins
+    else{
+        computerScore++;
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    }
+    }
+``
+function playGame(){
+    for(let i = 0; i < 5; i++){
+        playRound(choices);
+    }
+    console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
 
 let humanScore = 0;
 let computerScore = 0;
 const choices = ["rock","paper","scissors"];
+prompt("Let's play Rock, Paper, Scissors!");
+playGame();
 
-function playRound(choices, humanChoice, computerChoice){
-    if(getHumanChoice(choices)== getComputerChoice(choices)){
-        console.log(`Its a draw`)
-
-    }
-    else if()
-}
