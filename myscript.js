@@ -6,14 +6,14 @@ function getHumanChoice(choices){
     check = prompt(`Input the order of your choice between;` + choices);
     //check if the input is valid
     if(choices.includes(check)){
-        return choices[check-1];
+        return check;
     }
     else{
         console.log("Invalid input. Please try again.");
         return getHumanChoice(choices);
     }
 }
-function playRound(choices, humanChoice, computerChoice){
+function playRound(choices){
     humanChoice = getHumanChoice(choices);
     computerChoice = getComputerChoice(choices);
     if(humanChoice == computerChoice){
@@ -35,8 +35,7 @@ function playRound(choices, humanChoice, computerChoice){
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
     }
     }
-``
-function playGame(){
+function playGame(choices){
     for(let i = 0; i < 5; i++){
         playRound(choices);
     }
@@ -46,6 +45,6 @@ function playGame(){
 let humanScore = 0;
 let computerScore = 0;
 const choices = ["rock","paper","scissors"];
-prompt("Let's play Rock, Paper, Scissors!");
-playGame();
+console.log("Let's play Rock, Paper, Scissors!");
+playGame(choices);
 
