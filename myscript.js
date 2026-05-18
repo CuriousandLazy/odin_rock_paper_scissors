@@ -5,7 +5,7 @@ function getComputerChoice(choices){
 function getHumanChoice(choices){
     check = prompt(`Input the order of your choice between;` + choices);
     //check if the input is valid
-    if(choices.includes(check)){
+    if(choices.includes(check.toLowerCase())){
         return check;
     }
     else{
@@ -28,11 +28,13 @@ function playRound(choices){
         (humanChoice == "scissors" && computerChoice == "paper")){
         humanScore++;
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
     }
     // Handle the cases where the computer wins
     else{
         computerScore++;
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
     }
     }
 function playGame(choices){
