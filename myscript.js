@@ -17,8 +17,6 @@ function playRound(humanChoice){
     computerChoice = getComputerChoice(choices);
     if(humanChoice == computerChoice){
         document.getElementById('results').textContent = `It's a draw! You both chose ${humanChoice}`;
-        document.getElementById('human-score').textContent = humanScore;
-        document.getElementById('computer-score').textContent = computerScore;
         return;
     }
 
@@ -26,8 +24,9 @@ function playRound(humanChoice){
         (humanChoice == "paper" && computerChoice == "rock") || 
         (humanChoice == "scissors" && computerChoice == "paper")){
         humanScore++;
-        document.getElementById('human-score').textContent = humanScore;
         document.getElementById('results').textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+        document.getElementById('human-score').textContent = humanScore;
+        
     }
     // Handle the cases where the computer wins
     else{
@@ -36,13 +35,7 @@ function playRound(humanChoice){
         document.getElementById('computer-score').textContent = computerScore;
     }
 }
-function playGame(choices){
-
-    console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
-}
-
 let humanScore = 0;
 let computerScore = 0;
 const choices = ["rock","paper","scissors"];
-console.log("Let's play Rock, Paper, Scissors!");
-playGame(choices);
+
