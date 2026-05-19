@@ -7,6 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="choices">
+            <button onclick="playRound('rock')" id="rock">Rock</button>
+            <button onclick="playRound('paper')" id="paper">Paper</button>
+            <button onclick="playRound('scissors')" id="scissors">Scissors</button>
+        </div>
+        <div class="score">Human: 
+            <span id="human-score">0</span>
+            Computer: 
+            <span id="computer-score">0</span>
+        </div>
+        <div class="results" id="results"></div>
 </body>
 </html>
